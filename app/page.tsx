@@ -1,7 +1,9 @@
 import AboutSection from "@/components/aboutsection";
 import HeroSection from "@/components/herosection";
+import ProjectsSection from "@/components/projectsSection";
 import ServicesSection from "@/components/servicesSection";
 import HomeStats from "@/components/ui/homestats";
+import WhyChooseUs from "@/components/whychooseusSection";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <HomeStats />
       <AboutSection />
       <ServicesSection />
+      <WhyChooseUs />
+      <ProjectsSection />
     </div>
   )
 }

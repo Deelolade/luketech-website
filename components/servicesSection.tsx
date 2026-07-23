@@ -137,7 +137,7 @@ function ServiceCard({
   return (
     <article
       ref={ref}
-      className={`overflow-hidden rounded-2xl bg-[#071426] shadow-2xl transition-all duration-700 md:rounded-3xl lg:sticky ${
+      className={`overflow-hidden rounded-2xl bg-white shadow-2xl transition-all duration-700 md:rounded-3xl lg:sticky ${
         inView
           ? "translate-y-0 scale-100 opacity-100"
           : "translate-y-16 scale-[0.97] opacity-0"
@@ -159,10 +159,10 @@ function ServiceCard({
         </div>
 
         {/* Content */}
-        <div className="flex flex-col justify-between p-8 text-white md:p-12 lg:p-16">
+        <div className="flex flex-col justify-between p-8 md:p-12 lg:p-16">
           {/* Top */}
           <div className="flex items-center justify-between">
-            <span className="font-mono text-sm text-white/40">{number}</span>
+            <span className="font-mono text-sm text-slate-300">{number}</span>
 
             <div
               className={`rounded-lg bg-[#2E96A3]/20 p-3 transition-all duration-500 ${
@@ -177,7 +177,7 @@ function ServiceCard({
           {/* Main Content */}
           <div className="mt-10 lg:mt-20">
             <h3
-              className={`text-2xl font-semibold tracking-tight transition-all duration-500 md:text-5xl ${
+                          className={`text-2xl font-semibold tracking-tight text-slate-900 transition-all duration-500 md:text-5xl ${
                 inView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
               style={{ transitionDelay: `${200 + index * 100}ms` }}
@@ -186,7 +186,7 @@ function ServiceCard({
             </h3>
 
             <p
-              className={`mt-5 max-w-lg text-base leading-7 text-white/60 transition-all duration-500 ${
+              className={`mt-5 max-w-lg text-base leading-7 text-slate-500 transition-all duration-500 ${
                 inView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
               style={{ transitionDelay: `${350 + index * 100}ms` }}
@@ -195,7 +195,7 @@ function ServiceCard({
             </p>
 
             <div
-              className={`mt-8 flex items-center gap-3 text-sm font-medium text-white transition-all duration-500 ${
+              className={`mt-8 flex items-center gap-3 text-sm font-medium text-slate-900 transition-all duration-500 ${
                 inView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
               style={{ transitionDelay: `${500 + index * 100}ms` }}
