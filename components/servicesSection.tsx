@@ -75,7 +75,7 @@ const ServicesSection = () => {
 
   return (
     <section className="bg-[#F7F8F6]">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28 lg:px-20">
         {/* Header */}
         <div
           ref={header.ref}
@@ -90,14 +90,14 @@ const ServicesSection = () => {
               What We Do
             </p>
 
-            <h2 className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-[#071426] md:text-5xl lg:text-6xl">
+            <h2 className="max-w-3xl text-3xl font-semibold leading-[1.05] tracking-tight text-[#071426] md:text-5xl lg:text-6xl">
               Water solutions built from the ground up.
             </h2>
           </div>
         </div>
 
         {/* Stacking Services */}
-        <div className="mt-20 space-y-8">
+        <div className="mt-14 space-y-6 md:mt-20 md:space-y-8">
           {SERVICES.map(
             ({ icon: Icon, number, title, description, image }, index) => (
               <ServiceCard
@@ -137,7 +137,7 @@ function ServiceCard({
   return (
     <article
       ref={ref}
-      className={`sticky overflow-hidden rounded-3xl bg-[#071426] shadow-2xl transition-all duration-700 ${
+      className={`overflow-hidden rounded-2xl bg-[#071426] shadow-2xl transition-all duration-700 md:rounded-3xl lg:sticky ${
         inView
           ? "translate-y-0 scale-100 opacity-100"
           : "translate-y-16 scale-[0.97] opacity-0"
@@ -146,9 +146,9 @@ function ServiceCard({
         top: `${100 + index * 30}px`,
       }}
     >
-      <div className="grid min-h-[520px] lg:grid-cols-2">
+      <div className="grid lg:min-h-[520px] lg:grid-cols-2">
         {/* Image */}
-        <div className="relative min-h-[400px] lg:min-h-[520px]">
+        <div className="relative min-h-[280px] lg:min-h-[520px]">
           <Image
             fill
             src={image}
@@ -175,9 +175,9 @@ function ServiceCard({
           </div>
 
           {/* Main Content */}
-          <div className="mt-20">
+          <div className="mt-10 lg:mt-20">
             <h3
-              className={`text-3xl font-semibold tracking-tight transition-all duration-500 md:text-5xl ${
+              className={`text-2xl font-semibold tracking-tight transition-all duration-500 md:text-5xl ${
                 inView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
               style={{ transitionDelay: `${200 + index * 100}ms` }}
