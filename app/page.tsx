@@ -1,6 +1,7 @@
 import AboutSection from "@/components/aboutsection";
 import CTASection from "@/components/ctaSection";
 import FAQSection from "@/components/faqSection";
+import Footer from "@/components/footer";
 import HeroSection from "@/components/herosection";
 import ProjectsSection from "@/components/projectsSection";
 import ServicesSection from "@/components/servicesSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <ProjectsSection />
       <FAQSection />
       <CTASection />
+      <Footer />
     </div>
   )
 }
