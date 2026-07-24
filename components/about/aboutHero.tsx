@@ -29,8 +29,8 @@ const AboutHero = () => {
   const [ref, inView] = useInView(0.3);
 
   return (
-    <section className="flex min-h-screen items-start bg-gradient-to-b from-[#030B24] via-[#030B24] to-black/95">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 lg:px-20">
+    <section className="flex min-h-[80vh] items-start bg-gradient-to-b from-[#030B24] via-[#030B24] to-black/95">
+          <div className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-24 md:pb-20 lg:px-20">
         <div
           ref={ref}
           className={`transition-all duration-700 ${

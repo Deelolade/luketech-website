@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
+import WhatsAppFAB from "@/components/ui/whatsappFAB";
 
 
 export const metadata: Metadata = {
@@ -102,9 +103,10 @@ export default function RootLayout({
       className={`h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-      </body>
+              <Navbar />
+              {children}
+              <WhatsAppFAB />
+            </body>
     </html>
   );
 }

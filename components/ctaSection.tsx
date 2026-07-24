@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -56,15 +57,15 @@ const CTASection = () => {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="group flex items-center gap-3 bg-[#2E96A3] px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-[#24808C]">
+            <Link href="/contact" className="group flex items-center gap-3 bg-[#2E96A3] px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-[#24808C]">
               Discuss Your Project
               <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-2" />
-            </button>
+            </Link>
 
-            <button className="group flex items-center gap-3 border border-white/20 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5">
+            <Link href="/contact" className="group flex items-center gap-3 border border-white/20 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5">
               Call Us Now
               <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-2" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

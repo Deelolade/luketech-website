@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong, FaPhone } from "react-icons/fa6";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -17,8 +17,10 @@ const Navbar = () => {
   }, []);
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-colors duration-300 ${
-        scrolled ? "bg-transparent" : "bg-[#030B24]"
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "bg-transparent"
+          : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex w-full items-center bg-transparent justify-between px-3 md:px-10 lg:px-24 py-3 md:py-4 lg:py-5">
@@ -119,22 +121,25 @@ const Navbar = () => {
               <li className="text-gray-300">
                 <a
                   href="tel:+2348023431553"
-                  className="hover:text-blue-400 hover:transition-colors hover:duration-300"
+                  className="inline-flex items-center gap-1.5 hover:text-blue-400 hover:transition-colors hover:duration-300"
                 >
+                  <FaPhone className="text-xs" />
                   08023431553
                 </a>
                 <span className="mx-2">|</span>
                 <a
                   href="tel:+2349039338960"
-                  className="hover:text-blue-400 hover:transition-colors hover:duration-300"
+                  className="inline-flex items-center gap-1.5 hover:text-blue-400 hover:transition-colors hover:duration-300"
                 >
+                  <FaPhone className="text-xs" />
                  09039338960
                 </a>
                 <span className="mx-2">|</span>
                 <a
                   href="tel:+23408155876014"
-                  className="hover:text-blue-400 hover:transition-colors hover:duration-300"
+                  className="inline-flex items-center gap-1.5 hover:text-blue-400 hover:transition-colors hover:duration-300"
                 >
+                  <FaPhone className="text-xs" />
                   08155876014
                 </a>
               </li>
