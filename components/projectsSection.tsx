@@ -74,12 +74,11 @@ const LOCATIONS = [
 ];
 
 function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
+  const elementRef = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    const element = ref.current;
-
+    const element = elementRef.current;
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -93,19 +92,18 @@ function useInView(threshold = 0.15) {
     );
 
     observer.observe(element);
-
     return () => observer.disconnect();
   }, [threshold]);
 
-  return { ref, inView };
+  return [elementRef, inView] as const;
 }
 
 const ProjectsSection = () => {
   const [current, setCurrent] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
 
-  const header = useInView(0.3);
-  const coverage = useInView(0.3);
+  const [headerRef, headerInView] = useInView(0.3);
+  const [coverageRef, coverageInView] = useInView(0.3);
 
   const project = PROJECTS[current];
 
@@ -121,28 +119,42 @@ const ProjectsSection = () => {
   };
 
   const previousProject = () => {
-    const previous =
-      current === 0 ? PROJECTS.length - 1 : current - 1;
+    const previous = current === 0 ? PROJECTS.length - 1 : current - 1;
 
     changeProject(previous);
   };
 
   const nextProject = () => {
-    const next =
-      current === PROJECTS.length - 1 ? 0 : current + 1;
+    const next = current === PROJECTS.length - 1 ? 0 : current + 1;
 
     changeProject(next);
   };
 
+  // Auto-slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev === PROJECTS.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handlePrev = () => {
+    previousProject();
+  };
+
+  const handleNext = () => {
+    nextProject();
+  };
+
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32 lg:px-20">
-
+      <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-20 lg:px-20">
         {/* Header */}
         <div
-          ref={header.ref}
+          ref={headerRef}
           className={`flex flex-col justify-between gap-8 border-b border-slate-200 pb-12 transition-all duration-700 md:flex-row md:items-end ${
-            header.inView
+            headerInView
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
           }`}
@@ -158,15 +170,13 @@ const ProjectsSection = () => {
           </div>
 
           <p className="max-w-md text-base leading-7 text-slate-600 md:text-lg">
-            A look at some of the water infrastructure projects we've
-            delivered across homes, businesses, farms, and industrial
-            facilities.
+            A look at some of the water infrastructure projects we've delivered
+            across homes, businesses, farms, and industrial facilities.
           </p>
         </div>
 
         {/* Project Slider */}
         <div className="mt-14 md:mt-20">
-
           {/* Image */}
           <div className="relative aspect-[4/3] overflow-hidden bg-slate-200 md:aspect-[16/8]">
             <Image
@@ -199,8 +209,7 @@ const ProjectsSection = () => {
           </div>
 
           {/* Project Information */}
-          <div className="flex flex-col gap-8 border-b border-slate-200 py-8 md:flex-row md:items-end md:justify-between">
-
+          <div className="flex flex-col gap-8 py-4 md:flex-row md:items-end md:justify-between">
             <div>
               {/* Type + Location */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
@@ -226,7 +235,7 @@ const ProjectsSection = () => {
             <div className="flex items-center gap-3">
               <button
                 type="button"
-                onClick={previousProject}
+                onClick={handlePrev}
                 disabled={isChanging}
                 aria-label="Previous project"
                 className="flex h-12 w-12 items-center justify-center border border-slate-200 text-[#071426] transition-all duration-300 hover:border-[#2E96A3] hover:bg-[#2E96A3] hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
@@ -236,7 +245,7 @@ const ProjectsSection = () => {
 
               <button
                 type="button"
-                onClick={nextProject}
+                onClick={handleNext}
                 disabled={isChanging}
                 aria-label="Next project"
                 className="flex h-12 w-12 items-center justify-center border border-slate-200 text-[#071426] transition-all duration-300 hover:border-[#2E96A3] hover:bg-[#2E96A3] hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
@@ -270,9 +279,9 @@ const ProjectsSection = () => {
 
         {/* Coverage */}
         <div
-          ref={coverage.ref}
-          className={`mt-16 flex flex-col gap-6 border-t border-slate-200 pt-8 transition-all duration-700 md:mt-20 md:flex-row md:items-center md:justify-between ${
-            coverage.inView
+          ref={coverageRef}
+          className={`mt-8 flex flex-col gap-6  pt-8 transition-all duration-700 md:mt-20 md:flex-row md:items-center md:justify-between ${
+            coverageInView
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
           }`}

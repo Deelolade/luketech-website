@@ -1,4 +1,5 @@
 import AboutSection from "@/components/aboutsection";
+import CTASection from "@/components/ctaSection";
 import HeroSection from "@/components/herosection";
 import ProjectsSection from "@/components/projectsSection";
 import ServicesSection from "@/components/servicesSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <ServicesSection />
       <WhyChooseUs />
       <ProjectsSection />
+      <CTASection />
     </div>
   )
 }
