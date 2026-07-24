@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { useInView } from "@/hooks/useInView";
 
 const AboutCTA = () => {
