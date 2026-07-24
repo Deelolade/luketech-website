@@ -95,6 +95,17 @@ const Navbar = () => {
           >
             Contact
           </Link>
+          <Link
+            href="/projects"
+            onClick={() => setOpenMenu(false)}
+            className={`text-3xl font-bold transition-all duration-500 delay-[400ms] hover:text-gray-300 md:text-4xl ${
+              openMenu
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-4 opacity-0"
+            }`}
+          >
+            Projects
+          </Link>
           <div className="mt-4 text-right">
             <h2 className="text-xl font-bold">How can we help?</h2>
             <ul className="mt-2 flex flex-col gap-4">
