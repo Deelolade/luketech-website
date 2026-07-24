@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { FaArrowRightLong, FaPlus } from "react-icons/fa6";
+import { useInView } from "@/hooks/useInView";
 
 const FAQS = [
   {
@@ -54,30 +55,6 @@ const FAQS = [
       "Yes. Luketech has completed projects across multiple states in Nigeria and provides water infrastructure solutions for clients in different regions.",
   },
 ];
-function useInView(threshold = 0.3) {
-  const elementRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = elementRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return [elementRef, inView] as const;
-}
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

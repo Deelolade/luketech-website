@@ -112,13 +112,15 @@ const Navbar = () => {
           <div className="mt-4 text-right">
             <h2 className="text-xl font-bold">How can we help?</h2>
             <ul className="mt-2 flex flex-col gap-4">
-              <Link
-                href="/contact"
-                className="group flex cursor-pointer items-center justify-end gap-3 text-gray-300"
-              >
-                <span>Get a Quote</span>
-                <FaArrowRightLong className="transition-transform duration-400 group-hover:translate-x-2 relative top-px" />
-              </Link>
+              <li>
+                <Link
+                  href="/contact"
+                  className="group flex cursor-pointer items-center justify-end gap-3 text-gray-300"
+                >
+                  <span>Get a Quote</span>
+                  <FaArrowRightLong className="transition-transform duration-400 group-hover:translate-x-2 relative top-px" />
+                </Link>
+              </li>
               <li className="text-gray-300">
                 <a
                   href="tel:+2348023431553"

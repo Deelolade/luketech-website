@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import WhatsAppFAB from "@/components/ui/whatsappFAB";
+import { Bricolage_Grotesque } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.luketechpdc.com"),
@@ -91,6 +92,7 @@ export const metadata: Metadata = {
     apple: "/images/logo-black.png",
   },
 };
+const bricolage_grotesque = Bricolage_Grotesque({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -98,10 +100,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased`}>
+    <html
+      lang="en"
+      className={`h-full antialiased ${bricolage_grotesque.className}`}
+    >
       <body className="min-h-full flex flex-col">
         <Navbar />
-        {children}
+        <main>
+          {children}
+        </main>
         <WhatsAppFAB />
       </body>
     </html>

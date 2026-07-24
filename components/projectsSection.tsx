@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaArrowLeftLong,
   FaArrowRightLong,
   FaLocationDot,
 } from "react-icons/fa6";
+import { useInView } from "@/hooks/useInView";
 
 const PROJECTS = [
   {
@@ -72,31 +73,6 @@ const LOCATIONS = [
   "Edo",
   "Rivers",
 ];
-
-function useInView(threshold = 0.15) {
-  const elementRef = useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const element = elementRef.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(element);
-        }
-      },
-      { threshold },
-    );
-
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return [elementRef, inView] as const;
-}
 
 const ProjectsSection = () => {
   const [current, setCurrent] = useState(0);

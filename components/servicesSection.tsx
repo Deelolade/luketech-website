@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import {
   FaMagnifyingGlassChart,
   FaGears,
@@ -9,6 +8,7 @@ import {
   FaWrench,
   FaArrowRightLong,
 } from "react-icons/fa6";
+import { useInView } from "@/hooks/useInView";
 
 const SERVICES = [
   {
@@ -45,42 +45,17 @@ const SERVICES = [
   },
 ];
 
-function useInView(threshold = 0.2) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, inView };
-}
-
 const ServicesSection = () => {
-  const header = useInView(0.3);
+  const [headerRef, headerInView] = useInView(0.3);
 
   return (
     <section className="bg-[#F7F8F6]">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20 lg:px-20">
         {/* Header */}
         <div
-          ref={header.ref}
+          ref={headerRef}
           className={`flex flex-col justify-between gap-8 transition-all duration-700 md:flex-row md:items-end ${
-            header.inView
+            headerInView
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
           }`}
@@ -132,7 +107,7 @@ function ServiceCard({
   description: string;
   image: string;
 }) {
-  const { ref, inView } = useInView(0.15);
+  const [ref, inView] = useInView(0.15);
 
   return (
     <article
