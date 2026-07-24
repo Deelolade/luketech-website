@@ -33,6 +33,7 @@ const Navbar = () => {
             src="/images/white-navbar-logo.png"
             alt="Luketech logo"
             fill
+            loading="eager"
             sizes="(max-width: 1023px) 56px, 112px"
             className="object-contain"
           />

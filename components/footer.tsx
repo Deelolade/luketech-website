@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaPhone } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -17,6 +17,7 @@ const Footer = () => {
                 src="/images/white-navbar-logo.png"
                 alt="Luketech logo"
                 fill
+                loading="eager"
                 className="object-contain object-left"
               />
             </Link>
@@ -85,9 +86,51 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="mt-12 border-t border-white/10 pt-8">
-          <p className="text-sm text-white/30">
-            © {new Date().getFullYear()} Luketech Plumbing and Drilling Company Ltd. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+            {/* Social Icons */}
+            <div className="flex items-center gap-4">
+              <a
+                href="https://facebook.com/luketechpdc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all hover:border-[#2E96A3] hover:text-[#2E96A3]"
+                aria-label="Facebook"
+              >
+                <FaFacebookF className="text-sm" />
+              </a>
+              <a
+                href="https://instagram.com/luketechpdc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all hover:border-[#2E96A3] hover:text-[#2E96A3]"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="text-sm" />
+              </a>
+              <a
+                href="https://x.com/luketechpdc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all hover:border-[#2E96A3] hover:text-[#2E96A3]"
+                aria-label="X (Twitter)"
+              >
+                <FaXTwitter className="text-sm" />
+              </a>
+              <a
+                href="https://linkedin.com/company/luketechpdc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all hover:border-[#2E96A3] hover:text-[#2E96A3]"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn className="text-sm" />
+              </a>
+            </div>
+
+            <p className="text-sm text-white/30">
+              © {new Date().getFullYear()} Luketech Plumbing and Drilling Company Ltd. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
