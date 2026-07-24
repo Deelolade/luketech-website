@@ -75,7 +75,7 @@ const ServicesSection = () => {
 
   return (
     <section className="bg-[#F7F8F6]">
-      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20 lg:px-20">
         {/* Header */}
         <div
           ref={header.ref}

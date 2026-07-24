@@ -149,7 +149,7 @@ const ProjectsSection = () => {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-20 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20 lg:px-20">
         {/* Header */}
         <div
           ref={headerRef}

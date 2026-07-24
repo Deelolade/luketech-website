@@ -28,7 +28,7 @@ const WHY_CHOOSE_US = [
 const WhyChooseUs = () => {
   return (
     <section className="bg-[#071426] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24 lg:px-20">
 
         {/* Header */}
         <div className="grid gap-12 lg:grid-cols-2 lg:items-end">

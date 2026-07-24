@@ -33,32 +33,31 @@ const CTASection = () => {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-20 lg:px-20">
-        {/* Blue CTA Card */}
-        <div
-          ref={ctaRef}
-                    className={`mx-auto max-w-6xl rounded-3xl bg-[#071426] px-6 py-16 text-center transition-all duration-700 md:px-16 md:py-24 ${
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20 lg:px-20">
+              {/* Blue CTA Card */}
+              <div
+                ref={ctaRef}
+                className={`mx-auto max-w-6xl rounded-3xl bg-[#071426] px-6 py-12 text-center transition-all duration-700 md:px-16 md:py-20 ${
                       ctaInView
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
           }`}
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#2E96A3]">
+          {/*<p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#2E96A3]">
             Get Started
-          </p>
+          </p>*/}
 
           <h2 className="mt-4 text-3xl font-semibold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl">
-            Ready to bring water to your site?
+            Need a reliable water solution?
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/50 md:text-lg">
-            Tell us about your project and we'll get back to you with a free
-            consultation and quote within 24 hours.
+            Whether you're planning a borehole for your home, estate, farm, business, or industrial facility, let's discuss your requirements.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button className="group flex items-center gap-3 bg-[#2E96A3] px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-[#24808C]">
-              Get a Free Quote
+              Discuss Your Project
               <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-2" />
             </button>
 

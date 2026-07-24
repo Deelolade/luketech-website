@@ -31,7 +31,7 @@ export default function HeroSection() {
       </h1>
       <div className="mt-6 md:mt-10 flex w-full max-w-6xl flex-wrap items-center gap-6">
         <button className="group flex items-center gap-4 border border-white bg-transparent px-5 md:px-7 py-2 md:py-4 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
-          Get a Free Quote
+          Discuss Your Project
           <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-1" />
         </button>
 

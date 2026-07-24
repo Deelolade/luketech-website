@@ -4,7 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const AboutSection = () => {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24 pt-32 md:px-12 lg:px-20">
+    <section className="mx-auto max-w-7xl px-6 pb-16 pt-24 md:px-12 md:pb-20 md:pt-28 lg:px-20">
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
         {/* Left: Drilling Image */}
         <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
