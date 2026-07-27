@@ -77,7 +77,14 @@ const ContactPage = () => {
 
     setStatus("loading");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
       toast.success("Thank you for reaching out. We've received your enquiry and our team will get back to you shortly.");
       setForm(INITIAL);
       setStatus("idle");
