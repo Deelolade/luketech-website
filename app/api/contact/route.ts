@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { render } from "@react-email/components";
-import { RESEND_API_KEY, EMAIL_FROM } from "@/utils/env";
+import { RESEND_API_KEY, EMAIL_FROM, OWNER_EMAIL } from "@/utils/env";
 import ContactEmail from "@/emails/contact-email";
 
 const resend = new Resend(RESEND_API_KEY);
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: EMAIL_FROM!,
-      to: "habeeboluwanishola13@gmail.com",
+      to: OWNER_EMAIL!,
       replyTo: email,
       subject: `New Enquiry from ${firstName} ${lastName}`,
       html,
