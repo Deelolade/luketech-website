@@ -55,18 +55,15 @@ const Footer = () => {
             {/* Phone numbers */}
             <div className="text-white/60">
               <a href="tel:08023431553" className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
-                <FaPhone className="text-xs" />
                 08023431553
               </a>
               {" "}|{" "}
               <a href="tel:09039338960" className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
-                <FaPhone className="text-xs" />
                 09039338960
               </a>
               {" "}|{" "}
               <a href="tel:08155876014" className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
-                <FaPhone className="text-xs" />
-                08155876014
+                  08155876014
               </a>
             </div>
 
