@@ -128,6 +128,7 @@ function ServiceCard({
             fill
             src={image}
             alt={title}
+            sizes="(max-width: 1023px) 100vw, 50vw"
             className="object-cover"
             priority={index === 0}
           />

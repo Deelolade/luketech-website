@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import WhatsAppFAB from "@/components/ui/whatsappFAB";
+import { Toaster } from "sonner";
 import { Bricolage_Grotesque } from "next/font/google";
 
 export const metadata: Metadata = {
@@ -105,6 +106,7 @@ export default function RootLayout({
       className={`h-full antialiased ${bricolage_grotesque.className}`}
     >
       <body className="min-h-full flex flex-col">
+        <Toaster position="top-center" richColors theme="dark" />
         <Navbar />
         <main>
           {children}

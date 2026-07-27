@@ -1,23 +1,37 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { FaArrowRightLong, FaPhone, FaWhatsapp } from "react-icons/fa6";
+import { FaPhone, FaWhatsapp } from "react-icons/fa6";
+import { toast } from "sonner";
 
 type FormData = {
   firstName: string;
   lastName: string;
   email: string;
-  help: string;
+  phone: string;
+  service: string;
+  location: string;
   message: string;
 };
 
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
+const SERVICES = [
+  "Borehole Drilling",
+  "Geophysical Survey",
+  "Pump Installation",
+  "Plumbing Services",
+  "Borehole Maintenance",
+  "Other",
+];
+
 const INITIAL: FormData = {
   firstName: "",
   lastName: "",
   email: "",
-  help: "",
+  phone: "",
+  service: "",
+  location: "",
   message: "",
 };
 
@@ -30,7 +44,9 @@ function validate(data: FormData): FormErrors {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     errors.email = "Invalid email";
   }
-  if (!data.help.trim()) errors.help = "Required";
+  if (!data.phone.trim()) errors.phone = "Required";
+  if (!data.service) errors.service = "Required";
+  if (!data.location.trim()) errors.location = "Required";
   if (!data.message.trim()) errors.message = "Required";
   return errors;
 }
@@ -38,10 +54,10 @@ function validate(data: FormData): FormErrors {
 const ContactPage = () => {
   const [form, setForm] = useState<FormData>(INITIAL);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading">("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -55,16 +71,20 @@ const ContactPage = () => {
     const validationErrors = validate(form);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      toast.error("Please fix the errors in the form.");
       return;
     }
 
     setStatus("loading");
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStatus("success");
+      toast.success("Thank you for reaching out. We've received your enquiry and our team will get back to you shortly.");
       setForm(INITIAL);
+      setStatus("idle");
+      console.log("Form submitted successfully", form);
     } catch {
-      setStatus("error");
+      toast.error("Something went wrong. Please try again or contact us by phone or WhatsApp.");
+      setStatus("idle");
     }
   };
 
@@ -84,7 +104,11 @@ const ContactPage = () => {
               How can we help? Call, email or use our form below.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-12 space-y-4" noValidate>
+            <form
+              onSubmit={handleSubmit}
+              className="mt-12 space-y-4"
+              noValidate
+            >
               <div className="grid gap-4 md:grid-cols-2">
                 <Field error={errors.firstName}>
                   <input
@@ -119,13 +143,43 @@ const ContactPage = () => {
                     className={input}
                   />
                 </Field>
-                <Field error={errors.help}>
+                <Field error={errors.phone}>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="Phone number"
+                    className={input}
+                  />
+                </Field>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <Field error={errors.service}>
+                  <select
+                    name="service"
+                    value={form.service}
+                    onChange={handleChange}
+                    className={`${input} appearance-none`}
+                  >
+                    <option value="" disabled className="bg-[#030B24]">
+                      Service needed
+                    </option>
+                    {SERVICES.map((s) => (
+                      <option key={s} value={s} className="bg-[#030B24]">
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+                <Field error={errors.location}>
                   <input
                     type="text"
-                    name="help"
-                    value={form.help}
+                    name="location"
+                    value={form.location}
                     onChange={handleChange}
-                    placeholder="How can we help?"
+                    placeholder="Project location"
                     className={input}
                   />
                 </Field>
@@ -151,19 +205,6 @@ const ContactPage = () => {
                   {status === "loading" ? "Sending..." : "Submit"}
                 </button>
               </div>
-
-              {status === "success" && (
-                <p className="mt-6 text-sm text-white/60">
-                  Thank you for reaching out. We've received your enquiry and
-                  our team will get back to you shortly.
-                </p>
-              )}
-              {status === "error" && (
-                <p className="mt-6 text-sm text-red-400">
-                  Something went wrong. Please try again or contact us directly
-                  by phone or WhatsApp.
-                </p>
-              )}
             </form>
           </div>
 
@@ -176,26 +217,26 @@ const ContactPage = () => {
               </p>
               <div className="mt-3 space-y-1">
                 <a
-                                  href="tel:08023431553"
-                                  className="flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"
-                                >
-                                  <FaPhone className="text-sm text-white/30" />
-                                  08023431553
-                                </a>
+                  href="tel:08023431553"
+                  className="flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"
+                >
+                  <FaPhone className="text-sm text-white/30" />
+                  08023431553
+                </a>
                 <a
-                                  href="tel:09039338960"
-                                  className="flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"
-                                >
-                                  <FaPhone className="text-sm text-white/30" />
-                                  09039338960
-                                </a>
+                  href="tel:09039338960"
+                  className="flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"
+                >
+                  <FaPhone className="text-sm text-white/30" />
+                  09039338960
+                </a>
                 <a
-                                  href="tel:08155876014"
-                                  className="flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"
-                                >
-                                  <FaPhone className="text-sm text-white/30" />
-                                  08155876014
-                                </a>
+                  href="tel:08155876014"
+                  className="flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"
+                >
+                  <FaPhone className="text-sm text-white/30" />
+                  08155876014
+                </a>
               </div>
             </div>
 
@@ -218,7 +259,7 @@ const ContactPage = () => {
                 WhatsApp
               </p>
               <a
-                href="https://wa.me/2348023431553"
+                href="https://wa.me/2348023431553?text=Hello%2C%20I%27m%20interested%20in%20your%20borehole%20drilling%20and%20water%20solution%20services.%20I%27d%20like%20to%20make%20an%20inquiry."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center gap-2 text-xl font-bold text-white transition-colors hover:text-white/80"

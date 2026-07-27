@@ -15,7 +15,7 @@ const Footer = () => {
                 src="/images/white-navbar-logo.png"
                 alt="Luketech logo"
                 fill
-                loading="eager"
+                sizes="208px"
                 className="object-contain object-left"
               />
             </Link>
