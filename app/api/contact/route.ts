@@ -19,8 +19,8 @@ export async function POST(request: Request) {
     );
 
     const { data, error } = await resend.emails.send({
-      from: EMAIL_FROM,
-      to: EMAIL_FROM,
+      from: EMAIL_FROM!,
+      to: "habeeboluwanishola13@gmail.com",
       replyTo: email,
       subject: `New Enquiry from ${firstName} ${lastName}`,
       html,
