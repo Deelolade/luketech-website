@@ -35,19 +35,19 @@ const AboutStory = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center">
+            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center flex flex-col items-center justify-center">
               <span className="text-4xl font-bold text-[#2E96A3] md:text-5xl">1990</span>
               <p className="mt-2 text-sm text-slate-500">Founded in Lagos</p>
             </div>
-            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center">
+            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center flex flex-col items-center justify-center">
               <span className="text-4xl font-bold text-[#2E96A3] md:text-5xl">1,500+</span>
               <p className="mt-2 text-sm text-slate-500">Boreholes completed</p>
             </div>
-            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center">
+            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center flex flex-col items-center justify-center">
               <span className="text-4xl font-bold text-[#2E96A3] md:text-5xl">10+</span>
               <p className="mt-2 text-sm text-slate-500">States covered</p>
             </div>
-            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center">
+            <div className="rounded-2xl bg-[#F7F8F6] p-6 text-center flex flex-col items-center justify-center">
               <span className="text-4xl font-bold text-[#2E96A3] md:text-5xl">36+</span>
               <p className="mt-2 text-sm text-slate-500">Years of service</p>
             </div>

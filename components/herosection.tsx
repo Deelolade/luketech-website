@@ -31,15 +31,15 @@ export default function HeroSection() {
          We go deeper to deliver reliable water solutions that <span key={currentPhrase} className="inline-block animate-[slideUp_0.5s_ease-out] text-blue-400">{herophrases[currentPhrase]}</span>
        </h1>
        <div className="mt-6 md:mt-10 flex w-full max-w-6xl flex-wrap items-center gap-6">
-         <button className="group flex items-center gap-4 border border-white bg-transparent px-5 md:px-7 py-2 md:py-4 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
+         <Link href="/contact" className="group flex items-center gap-4 border border-white bg-transparent px-5 md:px-7 py-2 md:py-4 font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black">
            Discuss Your Project
            <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-1" />
-         </button>
+         </Link>
 
-         <button className="group flex items-center gap-3 font-medium text-white transition-colors duration-300 hover:text-blue-400">
-           Explore Our Services
+         <Link href="/projects" className="group flex items-center gap-3 font-medium text-white transition-colors duration-300 hover:text-blue-400">
+           Explore Our Projects
            <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-1" />
-         </button>
+         </Link>
        </div>
 
      </section>

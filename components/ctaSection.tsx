@@ -37,10 +37,10 @@ const CTASection = () => {
               <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-2" />
             </Link>
 
-            <Link href="/contact" className="group flex items-center gap-3 border border-white/20 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5">
+            {/*<Link href="/contact" className="group flex items-center gap-3 border border-white/20 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5">
               Call Us Now
               <FaArrowRightLong className="transition-transform duration-300 group-hover:translate-x-2" />
-            </Link>
+            </Link>*/}
           </div>
         </div>
       </div>

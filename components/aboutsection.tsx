@@ -9,7 +9,7 @@ const AboutSection = () => {
         {/* Left: Drilling Image */}
         <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
           <Image
-            src="/images/imageOne.jpeg"
+            src="/images/hero-image.jpeg"
             alt="Luketech drilling operations"
             fill
             sizes="(max-width: 1023px) 100vw, 50vw"
